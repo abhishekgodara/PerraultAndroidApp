@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:482650469659:android:a06b6140add522ab",
+        "mobilesdk_app_id": "1:482650469659:android:3b3870896bfd5ace",
         "android_client_info": {
-          "package_name": "com.perraulthealth.perraulthealth"
+          "package_name": "com.perraulthealth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "482650469659-ai08dcafk627j0i2ik6om8q7cuq0bmlj.apps.googleusercontent.com",
+          "client_id": "482650469659-uv4p43kigir48l0v59cdk2esse32ttsp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.perraulthealth.perraulthealth",
-            "certificate_hash": "FB4DE2C93CA116D9D3B6CF4DEED7553A22D1073C"
+            "package_name": "com.perraulthealth",
+            "certificate_hash": "95DE716F9B539CFCAF60B627A8B2D2FB7958C6DB"
           }
         },
         {
