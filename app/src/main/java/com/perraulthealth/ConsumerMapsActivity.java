@@ -1,7 +1,9 @@
 package com.perraulthealth;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,13 +15,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Map;
 
-import static com.perraulthealth.R.id.imageViewMap;
 
 public class ConsumerMapsActivity extends FragmentActivity implements OnMapReadyCallback,View.OnClickListener {
 
@@ -37,7 +40,7 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_maps);
-       // findViewById(R.id.imageViewMap).setOnClickListener(this);
+        findViewById(R.id.imageViewMap).setOnClickListener(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
          mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.container);
@@ -50,7 +53,7 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
         int i = v.getId();
 
 
-        if(i == imageViewMap)
+        if(i == R.id.imageViewMap)
         {
 
             Toast.makeText(this, "Welcome map ...tarun", Toast.LENGTH_SHORT).show();
@@ -75,20 +78,21 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
         System.out.println("googleMap" + googleMap);
         mMap = googleMap;
         //mMap=com.google.android.gms.maps.GoogleMap@42b94dc8
-        /*
-        if (mMap != null) {
+        if(mMap==null)
+            return;
 
-            googleMap.getUiSettings().setAllGesturesEnabled(true);
+
+                 mMap.getUiSettings().setAllGesturesEnabled(true);
 
 
 
             LatLng latLngCenter = new LatLng(INITIAL_CENTER.latitude, INITIAL_CENTER.longitude);
-            this.searchCircle = this.mMap.addCircle(new CircleOptions().center(latLngCenter).radius(1000));
-            this.searchCircle.setFillColor(Color.argb(66, 255, 0, 255));
-            this.searchCircle.setStrokeColor(Color.argb(66, 0, 0, 0));
-            this.mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngCenter, INITIAL_ZOOM_LEVEL));
-            this.mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
-            this.mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngCenter));
+            searchCircle = mMap.addCircle(new CircleOptions().center(latLngCenter).radius(100));
+            searchCircle.setFillColor(Color.argb(66, 255, 0, 255));
+            searchCircle.setStrokeColor(Color.argb(66, 0, 0, 0));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngCenter, INITIAL_ZOOM_LEVEL));
+            //mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
+
 
             // setup GeoFire
             DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -98,12 +102,12 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
             geoFire = new GeoFire(mRootRef.child(geofire).getRef());
             Log.d("GeoFire", "onMapReady:mRootRef.child(geofire).getRef()" + geoFire);
             geoFire.setLocation("firebase-hq", new GeoLocation(37.7853889, -122.4056973));
-
-        }
-*/
         LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        geoFire.setLocation("Marker in Sydney", new GeoLocation(-34, 151));
+
+        //LatLng sydney = new LatLng(-34, 151);
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 
         // Add a marker in Sydney and move the camera

@@ -44,7 +44,7 @@ public class ConsumerHomeActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_home);
-        findViewById(R.id.imageViewMap).setOnClickListener(this);
+        findViewById(imageViewMap).setOnClickListener(this);
 
 
 
@@ -57,7 +57,7 @@ public class ConsumerHomeActivity extends AppCompatActivity implements View.OnCl
         int i = v.getId();
 
 
-        if(i == imageViewMap)
+        if(i == R.id.imageViewMap)
         {
 
                 Toast.makeText(this, "Welcome map ...tarun", Toast.LENGTH_SHORT).show();

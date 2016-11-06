@@ -59,12 +59,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
 
 
         editTextMobile = (EditText) findViewById(R.id.editTextMobile);
-
-
-
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-
-
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
 

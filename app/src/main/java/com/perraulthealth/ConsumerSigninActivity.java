@@ -53,20 +53,20 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
 
 
 
-
+        findViewById(R.id.editTextEmail).setOnClickListener(this);
+        findViewById(R.id.editTextPassword).setOnClickListener(this);
+        findViewById(R.id.checkboxSignedin).setOnClickListener(this);
         findViewById(R.id.buttonSignin).setOnClickListener(this);
         findViewById(R.id.textViewSignup).setOnClickListener(this);
 
 
+
             editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-
-
-
             editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-            password = editTextPassword.getText().toString().trim();
-
-
             checkboxSignedin = (CheckBox) findViewById(R.id.checkboxSignedin);
+
+
+
 
         System.out.println("checkbox" + checkbox);
 
@@ -76,7 +76,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
 
 
 
-        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -102,14 +102,14 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
         if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
+            FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
         }
     }
     @Override
@@ -141,20 +141,21 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
             finish();
             startActivity(new Intent(this,ConsumerSignupActivity.class ));
         }
+        if(i==R.id.checkboxSignedin) {
+
+            checkbox = checkboxSignedin.isChecked();
+        }
 
     }
 
     private void signIn() {
         Log.d(TAG, "signIn:" + email);
-        if (!validateForm()) {
-            return;
-        }
 
        progressDialog.setMessage("Signing in User...");
         progressDialog.show();
 
         // [START sign_in_with_email]
-        mAuth.signInWithEmailAndPassword(email,password)
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -176,8 +177,8 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(ConsumerSigninActivity.this, "auth_failed",
                                     Toast.LENGTH_SHORT).show();
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), ConsumerSignupActivity.class));
+                            //finish();
+                            //startActivity(new Intent(getApplicationContext(), ConsumerSignupActivity.class));
                         }
 
                         // [START_EXCLUDE]
@@ -187,32 +188,6 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                     }
                 });
         // [END sign_in_with_email]
-        saveSigninData( );
-    }
-
-
-
-
-    private boolean validateForm() {
-        boolean valid = true;
-
-        if (TextUtils.isEmpty(email)) {
-            editTextEmail.setError("Required.");
-            valid = false;
-        } else {
-            editTextEmail.setError(null);
-        }
-
-
-        if (TextUtils.isEmpty(password)) {
-            editTextPassword.setError("Required.");
-            valid = false;
-        } else {
-            editTextPassword.setError(null);
-        }
-
-
-        return valid;
     }
 
 
@@ -220,7 +195,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
 
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
 
-        FirebaseUser user = mAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
             String uid = user.getUid();
