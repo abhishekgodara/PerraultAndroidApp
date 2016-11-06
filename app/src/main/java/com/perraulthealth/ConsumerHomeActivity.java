@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Map;
 
-import static com.perraulthealth.perraulthealth.R.id.imageViewMap;
+import static com.perraulthealth.R.id.imageViewMap;
 
 
 public class ConsumerHomeActivity extends AppCompatActivity implements View.OnClickListener{

@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.perraulthealth.perraulthealth.R;
+import com.perraulthealth.R;
 
 import java.util.Map;
 

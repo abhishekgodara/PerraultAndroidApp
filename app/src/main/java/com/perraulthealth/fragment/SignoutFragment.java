@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.perraulthealth.perraulthealth.R;
+import com.perraulthealth.R;
 
 
 public class SignoutFragment extends Fragment {

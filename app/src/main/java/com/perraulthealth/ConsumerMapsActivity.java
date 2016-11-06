@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Map;
 
-import static com.perraulthealth.perraulthealth.R.id.imageViewMap;
+import static com.perraulthealth.R.id.imageViewMap;
 
 public class ConsumerMapsActivity extends FragmentActivity implements OnMapReadyCallback,View.OnClickListener {
 
@@ -40,7 +40,7 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
        // findViewById(R.id.imageViewMap).setOnClickListener(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
          mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+                .findFragmentById(R.id.container);
         mapFragment.getMapAsync(this);
     }
     @Override

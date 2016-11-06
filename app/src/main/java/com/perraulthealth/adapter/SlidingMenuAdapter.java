@@ -7,8 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.perraulthealth.perraulthealth.R;
-import com.perraulthealth.perraulthealth.model.ItemSlideMenu;
+import com.perraulthealth.R;
+import com.perraulthealth.model.ItemSlideMenu;
 
 import java.util.List;
 
