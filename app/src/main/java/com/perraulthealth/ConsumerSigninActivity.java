@@ -130,7 +130,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                 Toast.makeText(this, "Please enter the password", Toast.LENGTH_SHORT).show();
                 return;
             }
-            checkbox = checkboxSignedin.isChecked();
+            //checkbox = checkboxSignedin.isChecked();
             signIn();
 
 
