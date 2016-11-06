@@ -1,5 +1,6 @@
 package com.perraulthealth;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -40,7 +41,8 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_maps);
-        findViewById(R.id.imageViewMap).setOnClickListener(this);
+        findViewById(R.id.body).setOnClickListener(this);
+        findViewById(R.id.container).setOnClickListener(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
          mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.container);
@@ -53,10 +55,12 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
         int i = v.getId();
 
 
-        if(i == R.id.imageViewMap)
+        if(i == R.id.body)
         {
 
-            Toast.makeText(this, "Welcome map ...tarun", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(getApplicationContext(),Body.class ));
 
         }
 
@@ -102,8 +106,7 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
             geoFire = new GeoFire(mRootRef.child(geofire).getRef());
             Log.d("GeoFire", "onMapReady:mRootRef.child(geofire).getRef()" + geoFire);
             geoFire.setLocation("firebase-hq", new GeoLocation(37.7853889, -122.4056973));
-        LatLng sydney = new LatLng(-34, 151);
-        geoFire.setLocation("Marker in Sydney", new GeoLocation(-34, 151));
+            geoFire.setLocation("Marker in Sydney", new GeoLocation(-34, 151));
 
         //LatLng sydney = new LatLng(-34, 151);
         //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
