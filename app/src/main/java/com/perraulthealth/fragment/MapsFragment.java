@@ -97,8 +97,8 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
                     searchCircle.setFillColor(Color.argb(66, 255, 0, 255));
                     searchCircle.setStrokeColor(Color.argb(66, 0, 0, 0));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngCenter, INITIAL_ZOOM_LEVEL));
-                    mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngCenter));
+                   // mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
+                    //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngCenter));
 
                     // setup GeoFire
                     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -108,6 +108,7 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
                     geoFire = new GeoFire(mRootRef.child(geofire).getRef());
                     Log.d("GeoFire", "onMapReady:mRootRef.child(geofire).getRef()" + geoFire);
                     geoFire.setLocation("firebase-hq", new GeoLocation(37.7853889, -122.4056973));
+                    geoFire.setLocation("New Delhi", new GeoLocation(37.7853889, -122.4056973));
 
 
                     // radius in km
@@ -117,7 +118,8 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
                 }
             });
 
-return v;
+            //v = inflater.inflate(R.layout.fragment_map, container, false);
+        return v;
         }
     @Override
     public void onResume() {

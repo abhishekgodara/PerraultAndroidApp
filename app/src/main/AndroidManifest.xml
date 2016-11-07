@@ -38,12 +38,11 @@
             android:label="@string/title_consumer_home" />
         <activity
             android:name=".ConsumerMapsActivity"
-            android:label="@string/title_activity_consumer_maps"></activity>
+            android:label="@string/title_activity_consumer_maps" />
         <activity
             android:name=".Body"
-            android:label="Body">
-
-        </activity>
+            android:label="Body"></activity>
+        <activity android:name=".ConsumerPrescription"></activity>
     </application>
 
 </manifest>

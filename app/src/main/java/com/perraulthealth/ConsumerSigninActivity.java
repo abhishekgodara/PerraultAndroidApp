@@ -73,7 +73,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
 
 
 
-        /*
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -89,13 +89,12 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
 
-                    //TODO:Tarun
 
                 }
                 // ...
             }
         };
-*/
+
     }
     @Override
     public void onStart() {

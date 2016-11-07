@@ -81,15 +81,14 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:-tarun" + user.getUid());
+                    //startActivity(new Intent(getApplicationContext(),ConsumerMapsSigninActivity.class ));
                     finish();
-                    //startActivity(new Intent(getApplicationContext(),ConsumerSigninActivity.class ));
-                    //finish();
                     startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out-tarun");
                     //createAccount();
-                    finish();
+                    //finish();
                     //startActivity(new Intent(getApplicationContext(),ConsumerSigninActivity.class ));
                 }
                 // ...
