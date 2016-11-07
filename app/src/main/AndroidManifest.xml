@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyC1UP8VkKj1hOLoUTHJ-MTR9wjxioC2BIc" />
 
         <activity
             android:name=".AppLaunch"
@@ -38,11 +38,12 @@
             android:label="@string/title_consumer_home" />
         <activity
             android:name=".ConsumerMapsActivity"
-            android:label="@string/title_activity_consumer_maps" />
+            android:label="@string/title_activity_consumer_maps"></activity>
         <activity
             android:name=".Body"
-            android:label="Body"></activity>
-        <activity android:name=".ConsumerPrescription"></activity>
+            android:label="Body">
+
+        </activity>
     </application>
 
 </manifest>

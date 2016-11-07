@@ -107,8 +107,8 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
                     geoFire = new GeoFire(mRootRef.child(geofire).getRef());
                     Log.d("GeoFire", "onMapReady:mRootRef.child(geofire).getRef()" + geoFire);
-                    geoFire.setLocation("firebase-hq", new GeoLocation(37.7853889, -122.4056973));
-                    geoFire.setLocation("New Delhi", new GeoLocation(37.7853889, -122.4056973));
+                    geoFire.setLocation("Saket", new GeoLocation(37.7853889, -122.4056973));
+                    geoFire.setLocation("Malviya nagar", new GeoLocation(37.7953889, -121.4056973));
 
 
                     // radius in km
