@@ -90,7 +90,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                     Log.d(TAG, "onAuthStateChanged:signed_out-tarun");
                     //createAccount();
                     finish();
-                    startActivity(new Intent(getApplicationContext(),ConsumerSigninActivity.class ));
+                    //startActivity(new Intent(getApplicationContext(),ConsumerSigninActivity.class ));
                 }
                 // ...
             }
