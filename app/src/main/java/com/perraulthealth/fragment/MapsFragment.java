@@ -16,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -114,7 +115,7 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
                     mMap.addMarker(new MarkerOptions().position(llaiims).title("L"));
 
                     mMap.addMarker(new MarkerOptions().position(llapollo).title("D"));
-                    mMap.addMarker(new MarkerOptions().position(llsufdarjang).title("P"));
+                    mMap.addMarker(new MarkerOptions().position(llsufdarjang).icon(BitmapDescriptorFactory.fromResource(R.drawable.pharmacy)).title("5.6"));
 
                    mMap.addMarker(new MarkerOptions().position(llvardhmaan).title("Homecare"));
                     // setup GeoFire
