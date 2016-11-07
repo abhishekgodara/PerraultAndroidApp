@@ -1,6 +1,5 @@
 package com.perraulthealth.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -41,7 +40,14 @@ import java.util.Map;
 public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
 
-    private static final GeoLocation INITIAL_CENTER = new GeoLocation(37.7789, -122.4017);
+    private static final GeoLocation INITIAL_CENTER = new GeoLocation(28.566827, 77.208120);
+    private static final GeoLocation MAX = new GeoLocation(28.528244, 77.211780);
+    private static final GeoLocation AIIMS = new GeoLocation(28.566927, 77.208120);
+    private static final GeoLocation APOLLO = new GeoLocation(28.563586, 77.205779);
+    private static final GeoLocation SUFDARJANG = new GeoLocation(28.569586, 77.205279);
+    private static final GeoLocation VARDHMAAN = new GeoLocation(28.704059, 77.103490);
+
+
         private static final int INITIAL_ZOOM_LEVEL = 14;
        // private static final String GEO_FIRE_DB = "https://perraulthealth-cfc33.firebaseio.com";
        // private static final String GEO_FIRE_REF = GEO_FIRE_DB + "/geofire";
@@ -93,22 +99,54 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
                     // Add a marker in Sydney and move the camera
                     // LatLng sydney = new LatLng(-34, 151);
                     LatLng latLngCenter = new LatLng(INITIAL_CENTER.latitude, INITIAL_CENTER.longitude);
+                    LatLng llmax = new LatLng(MAX.latitude, MAX.longitude);
+                    LatLng llaiims = new LatLng(AIIMS.latitude, AIIMS.longitude);
+                    LatLng llapollo = new LatLng(APOLLO.latitude, APOLLO.longitude);
+                    LatLng llsufdarjang = new LatLng(SUFDARJANG.latitude, SUFDARJANG.longitude);
+                    LatLng llvardhmaan = new LatLng(VARDHMAAN.latitude, VARDHMAAN.longitude);
                     searchCircle = mMap.addCircle(new CircleOptions().center(latLngCenter).radius(1000));
-                    searchCircle.setFillColor(Color.argb(66, 255, 0, 255));
-                    searchCircle.setStrokeColor(Color.argb(66, 0, 0, 0));
+                   // searchCircle.setFillColor(Color.argb(66, 255, 0, 255));
+                    //searchCircle.setStrokeColor(Color.argb(66, 0, 0, 0));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngCenter, INITIAL_ZOOM_LEVEL));
-                   // mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
-                    //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngCenter));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngCenter));
+                    LatLng sydney = new LatLng(-34, 151);
+                    mMap.addMarker(new MarkerOptions().position(llmax).title("H"));
+                    mMap.addMarker(new MarkerOptions().position(llaiims).title("L"));
 
+                    mMap.addMarker(new MarkerOptions().position(llapollo).title("D"));
+                    mMap.addMarker(new MarkerOptions().position(llsufdarjang).title("P"));
+
+                   mMap.addMarker(new MarkerOptions().position(llvardhmaan).title("Homecare"));
                     // setup GeoFire
                     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
                     Log.d("GeoFire", "onMapReady:" + mRootRef);
-
-
                     geoFire = new GeoFire(mRootRef.child(geofire).getRef());
                     Log.d("GeoFire", "onMapReady:mRootRef.child(geofire).getRef()" + geoFire);
-                    geoFire.setLocation("Saket", new GeoLocation(37.7853889, -122.4056973));
-                    geoFire.setLocation("Malviya nagar", new GeoLocation(37.7953889, -121.4056973));
+                    geoFire.setLocation("C", new GeoLocation(28.566827, 77.208120));
+                    geoFire.setLocation("H", new GeoLocation(28.566827, 77.208120));
+                    geoFire.setLocation("L", new GeoLocation(28.569586, 77.205279));
+                    geoFire.setLocation("P", new GeoLocation(28.704059, 77.102490));
+                    geoFire.setLocation("D", new GeoLocation(28.704053, 77.102492));
+
+
+                   // mMap.addMarker(new MarkerOptions().position(latLngCenter).icon(BitmapDescriptorFactory.fromResource(R.drawable.body)).title("Consumer"));
+                  //  mMap.addMarker(new MarkerOptions().position(llmax).icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital)).title("MAX"));
+                    //mMap.addMarker(new MarkerOptions().position(llaiims).icon(BitmapDescriptorFactory.fromResource(R.drawable.lab)).title("Focus"));
+                   // mMap.addMarker(new MarkerOptions().position(llapollo).icon(BitmapDescriptorFactory.fromResource(R.drawable.pharmacy)).title("APOLLO"));
+                    //mMap.addMarker(new MarkerOptions().position(llsufdarjang).icon(BitmapDescriptorFactory.fromResource(R.drawable.nurse)).title("Homecare"));
+                    //mMap.addMarker(new MarkerOptions().position(llvardhmaan).icon(BitmapDescriptorFactory.fromResource(R.drawable.physiotherapyist)).title("Homecare"));
+
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngCenter));
+
+
+
+                    mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
+
+
+
+
+
+
 
 
                     // radius in km
