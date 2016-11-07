@@ -118,12 +118,12 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
 
 
         if(i ==R.id.buttonSignup) {
-            mobile = editTextMobile.getText().toString().trim();
-            System.out.println("mobile" + mobile);
-            if (TextUtils.isEmpty(mobile)) {
-                Toast.makeText(this, "Please enter the mobile", Toast.LENGTH_SHORT).show();
-                return;
-            }
+                mobile = editTextMobile.getText().toString().trim();
+                System.out.println("mobile" + mobile);
+                if (TextUtils.isEmpty(mobile)) {
+                    Toast.makeText(this, "Please enter the mobile", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             email = editTextEmail.getText().toString().trim();
             System.out.println("email" + email);
             if (TextUtils.isEmpty(email)) {
