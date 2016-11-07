@@ -37,10 +37,12 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_home);
+        findViewById(R.id.body).setOnClickListener(this);
+        findViewById(R.id.imageViewMap).setOnClickListener(this);
 
 
         //setContentView(R.layout.fragment_map);
-        //findViewById(R.id.body).setOnClickListener(this);
+        //
        // findViewById(R.id.container).setOnClickListener(this);
 
          //Obtain the SupportMapFragment and get notified when the map is ready to be used.
