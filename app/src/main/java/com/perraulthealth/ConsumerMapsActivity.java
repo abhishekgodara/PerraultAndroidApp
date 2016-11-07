@@ -1,31 +1,27 @@
 package com.perraulthealth;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.perraulthealth.fragment.MapsFragment;
 
 import java.util.Map;
 
 
-public class ConsumerMapsActivity extends FragmentActivity implements OnMapReadyCallback,View.OnClickListener {
+public class ConsumerMapsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private GoogleMap  mMap;
     private SupportMapFragment mapFragment;
@@ -40,13 +36,27 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consumer_maps);
-        findViewById(R.id.body).setOnClickListener(this);
-        findViewById(R.id.container).setOnClickListener(this);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-         mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.container);
-        mapFragment.getMapAsync(this);
+        setContentView(R.layout.activity_consumer_home);
+
+
+        //setContentView(R.layout.fragment_map);
+        //findViewById(R.id.body).setOnClickListener(this);
+       // findViewById(R.id.container).setOnClickListener(this);
+
+         //Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        // mapFragment = (SupportMapFragment) getSupportFragmentManager()
+          //      .findFragmentById(R.id.container);
+        //mapFragment.getMapAsync(this);
+
+        // Pushing MapView Fragment
+
+
+    }
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        //setContentView(R.layout.fragment_map);
     }
     @Override
     public void onClick(View v)
@@ -54,6 +64,15 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
 
         int i = v.getId();
 
+        if(i == R.id.imageViewMap)
+        {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.container, new MapsFragment());
+            ft.commit();
+
+
+        }
 
         if(i == R.id.body)
         {
@@ -77,6 +96,8 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+    /*
     @Override
     public void onMapReady(GoogleMap googleMap) {
         System.out.println("googleMap" + googleMap);
@@ -114,5 +135,5 @@ public class ConsumerMapsActivity extends FragmentActivity implements OnMapReady
         }
 
         // Add a marker in Sydney and move the camera
-
+*/
 }

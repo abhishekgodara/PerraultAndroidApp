@@ -68,9 +68,9 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
 
 
 
+        mAuth = FirebaseAuth.getInstance();
 
-
-       // System.out.println("FirebaseAuth" + mAuth);
+       System.out.println("FirebaseAuth" + mAuth);
         //mAuth = com.google.android.gms.internal.zzahu@42992438
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -89,7 +89,8 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out-tarun");
                     //createAccount();
-                    //startActivity(new Intent(getApplicationContext(),ConsumerSignupActivity.class ));
+                    finish();
+                    startActivity(new Intent(getApplicationContext(),ConsumerSigninActivity.class ));
                 }
                 // ...
             }

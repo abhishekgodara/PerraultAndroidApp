@@ -1,9 +1,8 @@
 package com.perraulthealth.fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,8 @@ import com.firebase.geofire.GeoQuery;
 import com.firebase.geofire.GeoQueryEventListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
@@ -30,16 +29,17 @@ import com.perraulthealth.R;
 
 import java.util.Map;
 
-;
+
+
+
 
 
 /**
  * Created by sutu on 11/2/2016.
  */
 
-public class MapsFragment  extends Fragment implements GeoQueryEventListener {
+public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
-    private MapFragment mMapFragment;
 
     private static final GeoLocation INITIAL_CENTER = new GeoLocation(37.7789, -122.4017);
         private static final int INITIAL_ZOOM_LEVEL = 14;
@@ -55,22 +55,34 @@ public class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
 
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+
+    }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
 
-
-            FragmentManager fm = getFragmentManager();
-
-            mMapFragment = (MapFragment) fm.findFragmentById(R.id.map);
-
-
-            View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+            if(container==null)
+                return null;
 
 
 
-            mMapFragment.getMapAsync(new OnMapReadyCallback() {
+
+            View v = inflater.inflate(R.layout.fragment_map, container, false);
+            mMapView = (MapView) v.findViewById(R.id.map);
+            mMapView.onCreate(savedInstanceState);
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+
+
+
+            mMapView.getMapAsync(new OnMapReadyCallback() {
 
 
                 @Override
@@ -104,7 +116,8 @@ public class MapsFragment  extends Fragment implements GeoQueryEventListener {
                    // markers = new HashMap<String, Marker>();
                 }
             });
-return rootView;
+
+return v;
         }
     @Override
     public void onResume() {

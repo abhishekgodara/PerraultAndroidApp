@@ -88,7 +88,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-     />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.25" />
 
 
 
@@ -177,7 +178,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <FrameLayout
+    <com.google.android.gms.maps.MapView
+        class ="com.perraulthealth.fragment.MapsFragment"
         android:id="@+id/container"
         android:layout_width="300dp"
         android:layout_height="300dp"
@@ -189,8 +191,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewDoctor"
         app:layout_constraintBottom_toTopOf="@+id/imageViewPrescription"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        />
+        app:layout_constraintHorizontal_bias="0.58" />
 
 
 

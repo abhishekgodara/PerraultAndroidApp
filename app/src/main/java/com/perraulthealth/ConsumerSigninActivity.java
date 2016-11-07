@@ -44,7 +44,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_signin);
@@ -65,18 +65,16 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
             editTextPassword = (EditText) findViewById(R.id.editTextPassword);
             checkboxSignedin = (CheckBox) findViewById(R.id.checkboxSignedin);
 
-
+        mAuth = FirebaseAuth.getInstance();
 
 
         System.out.println("checkbox" + checkbox);
+        System.out.println("FirebaseAuth Signin" + mAuth);
 
 
 
+        /*
 
-
-
-
-       // mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -97,20 +95,18 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                 // ...
             }
         };
-
+*/
     }
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
+      //mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        if (mAuthListener != null) {
-            FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
-        }
+
     }
     @Override
     public void onClick (View v)
@@ -151,11 +147,13 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
     private void signIn() {
         Log.d(TAG, "signIn:" + email);
 
-       progressDialog.setMessage("Signing in User...");
-        progressDialog.show();
+       //progressDialog.setMessage("Signing in User...");
+        //progressDialog.show();
 
         // [START sign_in_with_email]
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+        System.out.println("FirebaseAuth signInWithEmailAndPassword" + mAuth);
+
+        mAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -163,7 +161,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                         if (task.isSuccessful()) {
                             saveSigninData( );
                             finish();
-                            progressDialog.dismiss();
+                           // progressDialog.dismiss();
                             //otp auth
                             startActivity(new Intent(getApplicationContext(), ConsumerMapsActivity.class));
                         }
@@ -173,7 +171,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            progressDialog.dismiss();
+                            //progressDialog.dismiss();
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(ConsumerSigninActivity.this, "auth_failed",
                                     Toast.LENGTH_SHORT).show();

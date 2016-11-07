@@ -4,7 +4,7 @@
     android:id="@+id/activity_consumer_signup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.perraulthealth.perraulthealth.ConsumerSignupActivity">
+    tools:context="com.perraulthealth.ConsumerSignupActivity">
 
     <LinearLayout
         android:layout_centerHorizontal="true"
