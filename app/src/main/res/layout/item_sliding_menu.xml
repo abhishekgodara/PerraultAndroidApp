@@ -7,14 +7,11 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/ic_stat_signout"
-        android:id="@+id/imageViewSignout"
-    />
+        android:id="@+id/item_img"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewSignout"/>
-
-
+        android:id="@+id/item_title"/>
 
 </LinearLayout>

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -32,6 +31,11 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     private GeoFire geoFire;
     private GeoQuery geoQuery;
     private Map<String,Marker> markers;
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +86,14 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
             finish();
             startActivity(new Intent(getApplicationContext(),Body.class ));
+
+        }
+        if(i==R.id.sidemenu)
+
+        {
+            onPause();
+            startActivity(new Intent(getApplicationContext(), SideMenu.class));
+
 
         }
 

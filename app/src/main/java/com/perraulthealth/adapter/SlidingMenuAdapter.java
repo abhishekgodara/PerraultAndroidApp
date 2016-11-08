@@ -15,20 +15,21 @@ import java.util.List;
 public class SlidingMenuAdapter extends BaseAdapter {
 
     private Context context;
-    private List<ItemSlideMenu> Item;
+    private List<ItemSlideMenu> lstItem;
+
 
     public SlidingMenuAdapter (Context context ,  List<ItemSlideMenu> Item){
         this.context = context;
-        this.Item = Item;
+        this.lstItem = Item;
     }
     @Override
     public int getCount() {
-        return Item.size();
+        return lstItem.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return Item.get(position);
+        return lstItem.get(position);
     }
 
     @Override
@@ -38,13 +39,13 @@ public class SlidingMenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = View.inflate(context, R.layout.signout_sliding_menu  ,null);
-        ImageView im = (ImageView)v.findViewById(R.id.imageViewSignout);
-        TextView tv =  (TextView)v.findViewById(R.id.textViewSignout);
+        View v = View.inflate(context, R.layout.item_sliding_menu  ,null);
+        ImageView img = (ImageView)v.findViewById(R.id.item_img);
+        TextView title =  (TextView)v.findViewById(R.id.item_title);
 
-        ItemSlideMenu item = Item.get(position);
-        im.setImageResource(item.getImgId());
-        tv.setText(item.getTitle());
+        ItemSlideMenu item = lstItem.get(position);
+        img.setImageResource(item.getImgId());
+        title.setText(item.getTitle());
         return v;
     }
 }

@@ -3,10 +3,7 @@
     package="com.perraulthealth">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-
-
 
     <application
         android:name="android.support.multidex.MultiDexApplication"
@@ -39,12 +36,13 @@
             android:label="@string/title_consumer_home" />
         <activity
             android:name=".ConsumerMapsActivity"
-            android:label="@string/title_activity_consumer_maps"></activity>
+            android:label="@string/title_activity_consumer_maps" />
         <activity
             android:name=".Body"
-            android:label="Body">
-
-        </activity>
+            android:label="Body"></activity>
+        <activity
+            android:name=".SideMenu"
+            android:label="SideMenu"></activity>
     </application>
 
 </manifest>
