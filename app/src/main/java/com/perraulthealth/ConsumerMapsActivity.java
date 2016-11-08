@@ -43,6 +43,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_consumer_home);
         findViewById(R.id.body).setOnClickListener(this);
         findViewById(R.id.imageViewMap).setOnClickListener(this);
+        findViewById(R.id.sidemenu).setOnClickListener(this);
 
 
         //setContentView(R.layout.fragment_map);
@@ -72,6 +73,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
         if(i == R.id.imageViewMap)
         {
+            Toast.makeText(this, "Welcome to map", Toast.LENGTH_SHORT).show();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.container, new MapsFragment());
@@ -80,7 +82,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
         }
 
-        if(i == R.id.body)
+        else if(i == R.id.body)
         {
 
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
@@ -88,17 +90,17 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
             startActivity(new Intent(getApplicationContext(),Body.class ));
 
         }
-        if(i==R.id.sidemenu)
+       else if(i==R.id.sidemenu)
 
         {
-            onPause();
+            Toast.makeText(this, "Welcome sidemenu ...tarun", Toast.LENGTH_SHORT).show();
+
+            //onPause();
             startActivity(new Intent(getApplicationContext(), SideMenu.class));
 
 
         }
 
-        else
-            Toast.makeText(this, "Welcome other than map ...tarun", Toast.LENGTH_SHORT).show();
     }
 
     /**

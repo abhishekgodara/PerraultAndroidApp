@@ -19,6 +19,17 @@
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name= "drawer_opened">Opened</string>
     <string name= "drawer_closed">Closed</string>
+    <string-array name="sidemenu_array">
+        <item>Mysettings</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="action_websearch">Web search</string>
 
 
 </resources>
