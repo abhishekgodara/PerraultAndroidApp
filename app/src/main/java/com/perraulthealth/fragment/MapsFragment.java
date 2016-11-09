@@ -78,10 +78,6 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
             if(container==null)
                 return null;
-
-
-
-
             View v = inflater.inflate(R.layout.fragment_map, container, false);
             mMapView = (MapView) v.findViewById(R.id.map);
             mMapView.onCreate(savedInstanceState);
