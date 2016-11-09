@@ -83,16 +83,16 @@
         android:background="@drawable/background"
         />
 
-    <RelativeLayout
-        class ="com.perraulthealth.fragment.ListViewFragment"
-        android:id="@+id/cntainer"
+    <ListView
+        android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/imageViewPrescription"
         app:layout_constraintTop_toBottomOf="@+id/imageViewDoctor">
-    </RelativeLayout>
+    </ListView>
+
 
 
     <ImageView

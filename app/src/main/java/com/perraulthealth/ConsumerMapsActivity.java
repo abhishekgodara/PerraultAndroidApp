@@ -81,11 +81,9 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
         if (i == R.id.imageViewList){
 
+            finish();
             Intent j = new Intent(getApplicationContext(), ConsumerListsActivity.class);
             startActivity(j);
-
-            // close this activity
-            finish();
 
         }
 
