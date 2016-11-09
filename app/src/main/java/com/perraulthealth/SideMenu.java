@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -57,6 +58,7 @@ public class SideMenu extends Activity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
+    private RelativeLayout mRelativeLayout;
 
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -65,12 +67,13 @@ public class SideMenu extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consumer_home);
+        setContentView(R.layout.list_menu);
 
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.sidemenu_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_Layout);
         mDrawerList = (ListView) findViewById(R.id.lv_sliding_menu);
+        mRelativeLayout =(RelativeLayout)findViewById(R.id.sidemenu_layout);
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);

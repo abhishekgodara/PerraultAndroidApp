@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -43,7 +42,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_home);
         findViewById(R.id.body).setOnClickListener(this);
-        findViewById(R.id.imageViewMap).setOnClickListener(this);
+        findViewById(R.id.imageViewList).setOnClickListener(this);
         findViewById(R.id.sidemenu).setOnClickListener(this);
 
         {
@@ -82,11 +81,11 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
         if (i == R.id.imageViewList){
 
-            Toast.makeText(this, "Loading list view", Toast.LENGTH_SHORT).show();
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.container, new ListFragment());
-            ft.commit();
+            Intent j = new Intent(getApplicationContext(), ConsumerListsActivity.class);
+            startActivity(j);
+
+            // close this activity
+            finish();
 
         }
 
@@ -103,6 +102,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
             //onPause();
             startActivity(new Intent(getApplicationContext(), SideMenu.class));
+            finish();
 
 
         }

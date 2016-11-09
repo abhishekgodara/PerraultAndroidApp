@@ -280,7 +280,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
             finish();
             progressDialog.dismiss();
             //otp auth
-            startActivity(new Intent(getApplicationContext(), ConsumerHomeActivity.class));
+
         } else if(false == task) {
 
             progressDialog.dismiss();

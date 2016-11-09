@@ -105,7 +105,7 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
                     LatLng llapollo = new LatLng(APOLLO.latitude, APOLLO.longitude);
                     LatLng llsufdarjang = new LatLng(SUFDARJANG.latitude, SUFDARJANG.longitude);
                     LatLng llvardhmaan = new LatLng(VARDHMAAN.latitude, VARDHMAAN.longitude);
-                    searchCircle = mMap.addCircle(new CircleOptions().center(latLngCenter).radius(1000));
+                    searchCircle = mMap.addCircle(new CircleOptions().center(latLngCenter).radius(1400));
                    // searchCircle.setFillColor(Color.argb(66, 255, 0, 255));
                     //searchCircle.setStrokeColor(Color.argb(66, 0, 0, 0));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngCenter, INITIAL_ZOOM_LEVEL));

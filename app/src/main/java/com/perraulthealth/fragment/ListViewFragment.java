@@ -11,10 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.perraulthealth.R;
-import com.perraulthealth.fragment.dummy.DummyContent;
 import com.perraulthealth.fragment.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -70,7 +67,7 @@ public class ListViewFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyListViewRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+           // recyclerView.setAdapter(new MyListViewRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
