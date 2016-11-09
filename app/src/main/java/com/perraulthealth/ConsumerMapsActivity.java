@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -45,6 +46,14 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         findViewById(R.id.imageViewMap).setOnClickListener(this);
         findViewById(R.id.sidemenu).setOnClickListener(this);
 
+        {
+            Toast.makeText(this, "Welcome to map", Toast.LENGTH_SHORT).show();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.container, new MapsFragment());
+            ft.commit();
+        }
+
 
         //setContentView(R.layout.fragment_map);
         //
@@ -71,26 +80,23 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
         int i = v.getId();
 
-        if(i == R.id.imageViewMap)
-        {
-            Toast.makeText(this, "Welcome to map", Toast.LENGTH_SHORT).show();
+        if (i == R.id.imageViewList){
+
+            Toast.makeText(this, "Loading list view", Toast.LENGTH_SHORT).show();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.container, new MapsFragment());
+            ft.replace(R.id.container, new ListFragment());
             ft.commit();
-
 
         }
 
-        else if(i == R.id.body)
-        {
+        else if (i == R.id.body) {
 
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
             finish();
-            startActivity(new Intent(getApplicationContext(),Body.class ));
+            startActivity(new Intent(getApplicationContext(), Body.class));
 
-        }
-       else if(i==R.id.sidemenu)
+        } else if (i == R.id.sidemenu)
 
         {
             Toast.makeText(this, "Welcome sidemenu ...tarun", Toast.LENGTH_SHORT).show();
