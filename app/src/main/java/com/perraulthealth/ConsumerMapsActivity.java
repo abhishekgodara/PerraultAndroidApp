@@ -76,33 +76,22 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v)
     {
-
         int i = v.getId();
-
         if (i == R.id.imageViewList){
-
             finish();
             Intent j = new Intent(getApplicationContext(), ConsumerListsActivity.class);
             startActivity(j);
-
         }
-
         else if (i == R.id.body) {
-
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
             finish();
             startActivity(new Intent(getApplicationContext(), Body.class));
-
-        } else if (i == R.id.sidemenu)
-
-        {
+        }
+        else if (i == R.id.sidemenu){
             Toast.makeText(this, "Welcome sidemenu ...tarun", Toast.LENGTH_SHORT).show();
-
             //onPause();
             startActivity(new Intent(getApplicationContext(), SideMenu.class));
-            finish();
-
-
+            //finish();
         }
 
     }

@@ -32,9 +32,6 @@
             android:name=".ConsumerSigninActivity"
             android:label="@string/title_consumer_signin" />
         <activity
-            android:name=".ConsumerHomeActivity"
-            android:label="@string/title_consumer_home" />
-        <activity
             android:name=".ConsumerMapsActivity"
             android:label="@string/title_activity_consumer_maps" />
         <activity
@@ -43,6 +40,7 @@
         <activity
             android:name=".SideMenu"
             android:label="SideMenu"></activity>
+
         <activity
         android:name=".ConsumerListsActivity"
         android:label="ConsumerListsActivity"></activity>
