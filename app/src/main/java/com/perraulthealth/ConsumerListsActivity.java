@@ -1,6 +1,5 @@
 package com.perraulthealth;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,14 +17,14 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.consumer_list_view);
-        findViewById(R.id.imageViewMap).setOnClickListener(this);
+        //findViewById(R.id.imageViewMap).setOnClickListener(this);
 
         {
             Toast.makeText(this, "Welcome to List", Toast.LENGTH_SHORT).show();
 
             if (savedInstanceState == null) {
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, new ListViewFragment()).commit();
+                        .replace(R.id.listViewContainer, new ListViewFragment()).commit();
             }
 
         }
@@ -36,16 +35,6 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
     {
 
         int i = v.getId();
-        if (i == R.id.imageViewMap){
-
-            finish();
-
-                Intent j = new Intent(getApplicationContext(), ConsumerMapsActivity.class);
-                startActivity(j);
-
-
-            }
-        else
         {
             Toast.makeText(this, "Do not work now", Toast.LENGTH_SHORT).show();
             //Intent j = new Intent(getApplicationContext(), ConsumerMapsActivity.class);

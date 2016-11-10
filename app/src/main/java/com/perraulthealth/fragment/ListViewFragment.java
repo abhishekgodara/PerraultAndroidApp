@@ -25,19 +25,40 @@ import java.util.ArrayList;
 public class ListViewFragment extends ListFragment {
 
     private ListView  listView;
+    private ViewGroup listContacts;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        System.out.println("container" + container);
         if (container == null)
             return null;
-        View rootView  = inflater.inflate(R.layout.fragment_listview, container, false);
+        View v  = inflater.inflate(R.layout.fragment_listview, container, false);
+        ListView listView = (ListView) v.findViewById(R.id.listViewcontainer);
+
+
+
+
+
+
+
+
+        System.out.println("listContacts" + listContacts);
+        System.out.println("listView" + listView);
         // ListView listView = (ListView)rootView.findViewById(R.id.listView);
         ArrayList<ListViewItem> listContact = GetlistContact();
-        ListView listView = (ListView) rootView.findViewById(R.id.listView);
-        listView.setAdapter(new ListviewContactAdapter(getActivity(), listContact));
+        System.out.println("listContact" + listContact);
 
-        return rootView;
+
+        //TextView aux = new TextView(getActivity());
+        //aux.setText("Hello World!");
+
+       // listContacts.getParent().addView(aux);
+
+        listView.setAdapter(new ListviewContactAdapter(getContext(), listContact));
+
+        return v;
     }
 
     private ArrayList<ListViewItem> GetlistContact(){
