@@ -218,7 +218,7 @@
 
     <ImageButton
         android:layout_height="200dp"
-        app:srcCompat="@drawable/ilivone"
+        app:srcCompat="@drawable/alert"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDate"
         android:layout_marginLeft="30dp"
@@ -289,7 +289,7 @@
     <ImageButton
         android:layout_width="68dp"
         android:layout_height="64dp"
-        app:srcCompat="@drawable/ilivtwo"
+        app:srcCompat="@drawable/alert"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFollowing"
         android:layout_marginLeft="30dp"
@@ -299,7 +299,7 @@
     <ImageButton
         android:layout_width="68dp"
         android:layout_height="64dp"
-        app:srcCompat="@drawable/ilivthree"
+        app:srcCompat="@drawable/alert"
         app:layout_constraintLeft_toRightOf="@+id/imageButtonFollow1"
         app:layout_constraintTop_toBottomOf="@+id/textViewFollowing"
         android:layout_marginLeft="30dp"
@@ -309,7 +309,7 @@
     <ImageButton
         android:layout_width="68dp"
         android:layout_height="64dp"
-        app:srcCompat="@drawable/ilivfour"
+        app:srcCompat="@drawable/alert"
         app:layout_constraintLeft_toRightOf="@+id/imageButtonFollow2"
         app:layout_constraintTop_toBottomOf="@+id/textViewFollowing"
         android:layout_marginLeft="30dp"
@@ -319,7 +319,7 @@
     <ImageButton
         android:layout_width="68dp"
         android:layout_height="64dp"
-        app:srcCompat="@drawable/ilivfive"
+        app:srcCompat="@drawable/alert"
         app:layout_constraintLeft_toRightOf="@+id/imageButtonFollow3"
         app:layout_constraintTop_toBottomOf="@+id/textViewFollowing"
         android:layout_marginLeft="30dp"
@@ -401,7 +401,7 @@
         android:layout_width="60dp" />
 
     <ImageButton
-        app:srcCompat="@drawable/addlogo2"
+        app:srcCompat="@drawable/alert"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDate2"
         android:layout_marginRight="10dp"
