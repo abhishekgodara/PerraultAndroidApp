@@ -2,10 +2,10 @@ package com.perraulthealth;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
@@ -15,9 +15,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.Marker;
+import com.perraulthealth.fragment.ListViewFragment;
 import com.perraulthealth.fragment.MapsFragment;
+import com.perraulthealth.fragment.Sidemenu;
 
 import java.util.Map;
+
+import static com.perraulthealth.R.id.imageViewList;
 
 
 public class ConsumerMapsActivity extends AppCompatActivity implements View.OnClickListener {
@@ -31,6 +35,13 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     private GeoFire geoFire;
     private GeoQuery geoQuery;
     private Map<String,Marker> markers;
+    ImageView img,img2;
+    ListView listView;
+     boolean viewboolean = false;
+     boolean sidemenuboolean = false;
+
+    android.support.v4.app.FragmentManager fm;
+    android.support.v4.app.FragmentTransaction ft;
 
 
 
@@ -39,19 +50,23 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_home);
+        img = (ImageView) findViewById(R.id.imageViewList);
+        img2 = (ImageView) findViewById(R.id.sidemenu);
+        //listView = (ListView) findViewById(R.id.listview);
+
         findViewById(R.id.body).setOnClickListener(this);
-        findViewById(R.id.imageViewList).setOnClickListener(this);
+        findViewById(imageViewList).setOnClickListener(this);
         findViewById(R.id.sidemenu).setOnClickListener(this);
 
-        {
-            Toast.makeText(this, "Welcome to map", Toast.LENGTH_SHORT).show();
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.container, new MapsFragment());
-            ft.commit();
-        }
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        ft.replace(R.id.container, new MapsFragment());
+        ft.commit();
+
 
 
         //setContentView(R.layout.fragment_map);
@@ -77,21 +92,56 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v)
     {
         int i = v.getId();
-        if (i == R.id.imageViewList){
-            finish();
-            Intent j = new Intent(getApplicationContext(), ConsumerListsActivity.class);
-            startActivity(j);
+        if (i == imageViewList){
+            if(false == viewboolean)
+            {
+                img.setImageResource(R.drawable.ic_action_map);
+                viewboolean = true;
+
+               fm = getSupportFragmentManager();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.container, new ListViewFragment());
+                ft.commit();
+                Toast.makeText(this, "Welcome to List", Toast.LENGTH_SHORT).show();
+                return;
+
+
+            }
+            else
+            {
+                img.setImageResource(R.drawable.list_view_icon);
+                viewboolean = false;
+
+               fm = getSupportFragmentManager();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.container, new MapsFragment());
+                ft.commit();
+                Toast.makeText(this, "Welcome to map", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         else if (i == R.id.body) {
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
-            finish();
+           // finish();
             startActivity(new Intent(getApplicationContext(), Body.class));
         }
         else if (i == R.id.sidemenu){
-            Toast.makeText(this, "Welcome sidemenu ...tarun", Toast.LENGTH_SHORT).show();
-            //onPause();
-            startActivity(new Intent(getApplicationContext(), SideMenu.class));
-            //finish();
+
+            if(false==sidemenuboolean)
+            {
+                img2.setImageResource(R.drawable.ic_action_siddemenuv);
+                sidemenuboolean = true;
+               fm = getSupportFragmentManager();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.sidemenu, new Sidemenu());
+                ft.commit();
+                Toast.makeText(this, "Open sidemenu", Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
+
         }
 
     }
@@ -144,5 +194,8 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         }
 
         // Add a marker in Sydney and move the camera
-*/
+
+       */
 }
+
+
