@@ -29,6 +29,8 @@ public class ListViewFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        System.out.println("container" + container);
         if (container == null)
             return null;
         View v  = inflater.inflate(R.layout.fragment_listview, container, false);
