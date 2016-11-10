@@ -17,20 +17,33 @@ import com.perraulthealth.Hospital;
 import com.perraulthealth.Lab;
 import com.perraulthealth.Pharmacy;
 import com.perraulthealth.R;
+import com.perraulthealth.adapter.SlidingMenuAdapter;
+import com.perraulthealth.model.ItemSlideMenu;
+
+import java.util.List;
 
 
 public class ListViewFragment extends ListFragment {
 
     private ListView  listView;
+    List<ItemSlideMenu> Item;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if(container==null)
             return null;
         View v = inflater.inflate(R.layout.fragment_listview, container, false);
+        //listView = (ListView)findViewById(R.id.list);
+
+        Item.add(new ItemSlideMenu(1,"test1" ));
+        Item.add(new ItemSlideMenu(2,"test2" ));
+        Item.add(new ItemSlideMenu(3,"test3" ));
+
+        SlidingMenuAdapter slidingMenuAdapter = new SlidingMenuAdapter(getContext(),Item);
 
 
-        String[] values = new String[] { "Lab", "Pharmacy", "Doctor" };
+        String[] values = new String[] { "Msg1", "Msg2", "Msg3" };
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
@@ -62,6 +75,9 @@ public class ListViewFragment extends ListFragment {
         mRootRef.child("Hospital").child(uid).setValue(objLab);
 
 
+       //listView.setAdapter(v,objDoctor,true);
+
+        //ListAdapter listAdapter = new ListAdapter (getActivity());
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, values);

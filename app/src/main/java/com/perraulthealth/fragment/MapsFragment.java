@@ -180,39 +180,18 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
         mMapView.onLowMemory();
     }
 
-        @Override
-        public void onStop() {
-            super.onStop();
-            // remove all event listeners to stop updating in the background
-            this.geoQuery.removeAllListeners();
-            for (Marker marker: this.markers.values()) {
-                marker.remove();
-            }
-            this.markers.clear();
-        }
 
-        @Override
-        public void onStart() {
-            super.onStart();
-            // add an event listener to start updating locations again
-           //this.geoQuery.addGeoQueryEventListener(this);
-        }
 
-        @Override
-        public void onKeyEntered(String key, GeoLocation location) {
+    @Override
+    public void onKeyEntered(String key, GeoLocation location) {
             // Add a new marker to the map
             Marker marker = this.mMap.addMarker(new MarkerOptions().position(new LatLng(location.latitude, location.longitude)));
             this.markers.put(key, marker);
         }
 
-        @Override
+    @Override
         public void onKeyExited(String key) {
-            // Remove any old marker
-            Marker marker = this.markers.get(key);
-            if (marker != null) {
-                marker.remove();
-                this.markers.remove(key);
-            }
+
         }
 
     @Override
