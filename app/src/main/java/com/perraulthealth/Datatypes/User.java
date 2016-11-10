@@ -6,9 +6,18 @@ package com.perraulthealth;
 
 public class User {
 
-    private Integer mobile;
-
     public User() {
+    }
+
+    private Integer mobile;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getMobile() {

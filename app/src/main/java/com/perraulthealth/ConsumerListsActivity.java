@@ -24,6 +24,7 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
 
         {
             Toast.makeText(this, "Welcome to List", Toast.LENGTH_SHORT).show();
+
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.container, new ListViewFragment());

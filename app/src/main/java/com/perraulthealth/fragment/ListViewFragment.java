@@ -1,11 +1,10 @@
 package com.perraulthealth.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,38 +16,51 @@ import com.perraulthealth.Hospital;
 import com.perraulthealth.Lab;
 import com.perraulthealth.Pharmacy;
 import com.perraulthealth.R;
-import com.perraulthealth.adapter.SlidingMenuAdapter;
-import com.perraulthealth.model.ItemSlideMenu;
+import com.perraulthealth.adapter.ListviewContactAdapter;
+import com.perraulthealth.model.ListViewItem;
 
-import java.util.List;
+import java.util.ArrayList;
 
 
-public class ListViewFragment extends ListFragment {
+public class ListViewFragment extends Fragment {
 
     private ListView  listView;
-    List<ItemSlideMenu> Item;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if(container==null)
+        if (container == null)
             return null;
-        View v = inflater.inflate(R.layout.fragment_listview, container, false);
-        //listView = (ListView)findViewById(R.id.list);
+        View rootView  = inflater.inflate(R.layout.fragment_listview, container, false);
+        // ListView listView = (ListView)rootView.findViewById(R.id.listView);
+        ArrayList<ListViewItem> listContact = GetlistContact();
+        ListView listView = (ListView) getActivity().findViewById(R.id.listView);
+        listView.setAdapter(new ListviewContactAdapter(getActivity(), listContact));
 
-        Item.add(new ItemSlideMenu(1,"test1" ));
-        Item.add(new ItemSlideMenu(2,"test2" ));
-        Item.add(new ItemSlideMenu(3,"test3" ));
+        return rootView;
+    }
 
-        SlidingMenuAdapter slidingMenuAdapter = new SlidingMenuAdapter(getContext(),Item);
+    private ArrayList<ListViewItem> GetlistContact(){
+        ArrayList<ListViewItem> contactlist = new ArrayList<ListViewItem>();
 
+        ListViewItem contact = new ListViewItem();
 
-        String[] values = new String[] { "Msg1", "Msg2", "Msg3" };
+        contact.setImgId(1);
+        contact.setTitle("Item1");
+        contactlist.add(contact);
+
+        contact = new ListViewItem();
+        contact.setImgId(2);
+        contact.setTitle("Item2");
+        contactlist.add(contact);
+
+        contact = new ListViewItem();
+        contact.setImgId(3);
+        contact.setTitle("Item3");
+        contactlist.add(contact);
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-
-
 
         Doctor objDoctor = new Doctor();
         objDoctor.setName("A K Sharma");
@@ -74,20 +86,8 @@ public class ListViewFragment extends ListFragment {
         objHospital.setAddress("Saket New Delhi, India");
         mRootRef.child("Hospital").child(uid).setValue(objLab);
 
-
-       //listView.setAdapter(v,objDoctor,true);
-
-        //ListAdapter listAdapter = new ListAdapter (getActivity());
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, values);
-        setListAdapter(adapter);
-        return v;
+        return contactlist;
     }
-
-
-
-
 
     @Override
     public void onStop() {
