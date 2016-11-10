@@ -31,13 +31,17 @@ public class ListViewFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (container == null)
             return null;
-        View rootView  = inflater.inflate(R.layout.fragment_listview, container, false);
+        View v  = inflater.inflate(R.layout.fragment_listview, container, false);
+        ListView listView = (ListView) v.findViewById(R.id.listView);
+        System.out.println("View" + v);
+        System.out.println("listView" + listView);
         // ListView listView = (ListView)rootView.findViewById(R.id.listView);
         ArrayList<ListViewItem> listContact = GetlistContact();
-        ListView listView = (ListView) rootView.findViewById(R.id.listView);
+        System.out.println("listContact" + listContact);
+
         listView.setAdapter(new ListviewContactAdapter(getActivity(), listContact));
 
-        return rootView;
+        return v;
     }
 
     private ArrayList<ListViewItem> GetlistContact(){
