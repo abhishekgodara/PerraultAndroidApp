@@ -2,8 +2,6 @@ package com.perraulthealth;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -24,10 +22,12 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
 
         {
             Toast.makeText(this, "Welcome to List", Toast.LENGTH_SHORT).show();
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.container, new ListViewFragment());
-            ft.commit();
+
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new ListViewFragment()).commit();
+            }
+
         }
     }
 
