@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class ListViewFragment extends ListFragment {
 
     private ListView  listView;
+    private ViewGroup listContacts;
 
 
     @Override
@@ -34,14 +35,28 @@ public class ListViewFragment extends ListFragment {
         if (container == null)
             return null;
         View v  = inflater.inflate(R.layout.fragment_listview, container, false);
-        ListView listView = (ListView) v.findViewById(R.id.listView);
-        System.out.println("View" + v);
+        ListView listView = (ListView) v.findViewById(R.id.listViewcontainer);
+
+
+
+
+
+
+
+
+        System.out.println("listContacts" + listContacts);
         System.out.println("listView" + listView);
         // ListView listView = (ListView)rootView.findViewById(R.id.listView);
         ArrayList<ListViewItem> listContact = GetlistContact();
         System.out.println("listContact" + listContact);
 
-        listView.setAdapter(new ListviewContactAdapter(getActivity(), listContact));
+
+        //TextView aux = new TextView(getActivity());
+        //aux.setText("Hello World!");
+
+       // listContacts.getParent().addView(aux);
+
+        listView.setAdapter(new ListviewContactAdapter(getContext(), listContact));
 
         return v;
     }
