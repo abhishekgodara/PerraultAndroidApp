@@ -1,7 +1,7 @@
 package com.perraulthealth.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +22,7 @@ import com.perraulthealth.model.ListViewItem;
 import java.util.ArrayList;
 
 
-public class ListViewFragment extends Fragment {
+public class ListViewFragment extends ListFragment {
 
     private ListView  listView;
 
@@ -34,7 +34,7 @@ public class ListViewFragment extends Fragment {
         View rootView  = inflater.inflate(R.layout.fragment_listview, container, false);
         // ListView listView = (ListView)rootView.findViewById(R.id.listView);
         ArrayList<ListViewItem> listContact = GetlistContact();
-        ListView listView = (ListView) getActivity().findViewById(R.id.listView);
+        ListView listView = (ListView) rootView.findViewById(R.id.listView);
         listView.setAdapter(new ListviewContactAdapter(getActivity(), listContact));
 
         return rootView;
@@ -58,6 +58,7 @@ public class ListViewFragment extends Fragment {
         contact.setImgId(3);
         contact.setTitle("Item3");
         contactlist.add(contact);
+
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
