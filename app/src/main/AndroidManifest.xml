@@ -36,14 +36,19 @@
             android:label="@string/title_activity_consumer_maps" />
         <activity
             android:name=".Body"
-            android:label="Body"></activity>
+            android:label="Body" />
         <activity
-            android:name=".SideMenu"
-            android:label="SideMenu"></activity>
-
+            android:name=".ConsumerListsActivity"
+            android:label="ConsumerListsActivity" />
         <activity
-        android:name=".ConsumerListsActivity"
-        android:label="ConsumerListsActivity"></activity>
+            android:name="com.Doctor.DoctorHomeActivity"
+            android:label="@string/title_activity_doctor_home"
+            android:theme="@style/AppTheme" />
+        <activity android:name="com.Homecare.HomecareHomeActivity" />
+        <activity android:name="com.Hospital.HospitalHomeActivity" />
+        <activity android:name="com.Lab.LabHomeActivity" />
+        <activity android:name="com.Pharmacy.PharmacyHomeActivity" />
+        <activity android:name="com.Retailer.RetailerHomeActivity"></activity>
     </application>
 
 </manifest>

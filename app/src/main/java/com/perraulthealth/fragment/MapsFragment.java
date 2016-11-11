@@ -156,6 +156,13 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
             //v = inflater.inflate(R.layout.fragment_map, container, false);
         return v;
         }
+
+    @Override
+    public void onStop() {
+
+        super.onStop();
+    }
+
     @Override
     public void onResume() {
         super.onResume();

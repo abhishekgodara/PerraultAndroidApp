@@ -30,6 +30,7 @@
         <item>Neptune</item>
     </string-array>
     <string name="action_websearch">Web search</string>
+    <string name="title_activity_doctor_home">DoctorHomeActivity</string>
 
 
 </resources>

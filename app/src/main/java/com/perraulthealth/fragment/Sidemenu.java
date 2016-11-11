@@ -39,7 +39,7 @@ public class Sidemenu extends ListFragment {
         if(container==null)
             return null;
         View v = inflater.inflate(R.layout.fragment_sidemenu, container, false);
-        listView1 = (ListView) v.findViewById(R.id.listView1);
+        listView1 = (ListView) v.findViewById(R.id.listViewSideMenu);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), android.R.layout.simple_list_item_1,
                 numbers_text);

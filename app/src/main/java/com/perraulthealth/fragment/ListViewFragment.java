@@ -53,6 +53,11 @@ public class ListViewFragment extends ListFragment {
     }
 
     @Override
+    public void onStop() {
+
+        super.onStop();
+    }
+    @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         // TODO implement some logic
     }
