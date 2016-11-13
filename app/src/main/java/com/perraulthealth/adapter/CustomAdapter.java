@@ -1,4 +1,4 @@
-package com.perraulthealth.fragment;
+package com.perraulthealth.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,8 +31,8 @@ public  class CustomAdapter extends ArrayAdapter<String> {
 
 
 
-    CustomAdapter(Context context, String[] numbers_text) {
-        super(context, R.layout.item_doctor, numbers_text);
+     public CustomAdapter(Context context) {
+        super(context, R.layout.item_doctor);
     }
 
     @Override
@@ -52,7 +52,8 @@ public  class CustomAdapter extends ArrayAdapter<String> {
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-        mRootRef.child("Doctor").addValueEventListener(new ValueEventListener() {
+        mRootRef.child("Doctor").child(uid)
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI

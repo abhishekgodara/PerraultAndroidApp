@@ -65,6 +65,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         img_sidemenu = (ImageView) findViewById(sidemenu);
 
         mapsFragment = new MapsFragment();
+        listViewFragment = new ListViewFragment();
         sideMenu = new Sidemenu();
 
 
@@ -102,11 +103,12 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                 img_view.setImageResource(R.drawable.list_view_icon);
 
 
-                ft.remove(listViewFragment);
+
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
 
-
+                ft.remove(listViewFragment);
+                ft.remove(mapsFragment);
                 ft.add(R.id.containermap, mapsFragment);
 
                 ft.commit();
@@ -117,9 +119,12 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
                 img_view.setImageResource(R.drawable.ic_action_map);
                 viewboolean = false;
+
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
+                ft.remove(listViewFragment);
                 ft.remove(mapsFragment);
+
                 ft.add(R.id.containerlist, listViewFragment);
                         ft.commit();
                 Toast.makeText(this, "Welcome to list", Toast.LENGTH_SHORT).show();
