@@ -31,6 +31,11 @@ public class ListViewFragment extends ListFragment {
             "twelve", "thirteen", "fourteen", "fifteen" };
     String[] numbers_digits = new String[] { "1", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "11", "12", "13", "14", "15" };
+    private Doctor objDoctor=null;
+    private Pharmacy objPharmacy = null;
+    private Lab objLab = null;
+    private Hospital objHospital = null;
+
 
 
     @Override
@@ -41,21 +46,42 @@ public class ListViewFragment extends ListFragment {
             return null;
         View v = inflater.inflate(R.layout.fragment_listview, container, false);
         listView = (ListView) v.findViewById(R.id.listView);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), android.R.layout.simple_list_item_1,
                 numbers_text);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
 
+
+        //numbers_digits = {objDoctor,objHospital,objLab,objPharmacy};
+
+        /*
+        ArrayList<Doctor> doctorArrayList = new ArrayList<Doctor>();
+
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        objDoctor = new Doctor();
+        objDoctor.setName("A K Sharma");
+        objDoctor.setDegree("MBBS");
+        objDoctor.setRegnum("AQTPM23ertu6789u");
+
+        mRootRef.child("Doctor").setValue(objDoctor);
+
+
+
+        doctorArrayList.add(objDoctor);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                inflater.getContext(), android.R.layout.simple_list_item_1,
+                numbers_text);
+        setListAdapter(adapter);
+        return super.onCreateView(inflater, container, savedInstanceState);
         //return v;
 
-
-    }
-
-    @Override
-    public void onStop() {
-
-        super.onStop();
+*/
     }
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
@@ -86,24 +112,24 @@ public class ListViewFragment extends ListFragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        Doctor objDoctor = new Doctor();
+         objDoctor = new Doctor();
         objDoctor.setName("A K Sharma");
         objDoctor.setDegree("MBBS");
         objDoctor.setRegnum("AQTPM23ertu6789u");
         mRootRef.child("Doctor").child(uid).setValue(objDoctor);
 
-        Pharmacy objPharmacy = new Pharmacy();
+         objPharmacy = new Pharmacy();
         objPharmacy.setName("Apollo pharmacy");
         objPharmacy.setRegnum("AQWERTYU");
         objPharmacy.setRating("4.3");
         mRootRef.child("Pharmacy").child(uid).setValue(objPharmacy);
 
 
-        Lab objLab = new Lab();
+         objLab = new Lab();
         objLab.setName("Focus Imagine");
         mRootRef.child("Lab").child(uid).setValue(objLab);
 
-        Hospital objHospital = new Hospital();
+         objHospital = new Hospital();
         objHospital.setName("MAX hospital");
         objHospital.setRating("5.1");
         objHospital.setNumofbeds(600);

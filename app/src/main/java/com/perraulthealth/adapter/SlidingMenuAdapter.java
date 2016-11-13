@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.perraulthealth.R;
@@ -40,12 +39,12 @@ public class SlidingMenuAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(context, R.layout.item_sliding_menu  ,null);
-        ImageView img = (ImageView)v.findViewById(R.id.item_img);
+        //ImageView img = (ImageView)v.findViewById(R.id.item_img);
         TextView title =  (TextView)v.findViewById(R.id.item_title);
 
-        ItemSlideMenu item = lstItem.get(position);
-        img.setImageResource(item.getImgId());
-        title.setText(item.getTitle());
+       // ItemSlideMenu item = lstItem.get(position);
+        //img.setImageResource(item.getImgId());
+       // title.setText(item.getTitle());
         return v;
     }
 }

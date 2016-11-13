@@ -21,6 +21,7 @@ import com.perraulthealth.fragment.Sidemenu;
 
 import java.util.Map;
 
+import static com.perraulthealth.R.id.sidemenu;
 
 
 public class ConsumerMapsActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,12 +35,13 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     private GeoFire geoFire;
     private GeoQuery geoQuery;
     private Map<String, Marker> markers;
-    ImageView img, img2;
+    ImageView img, img_sidemenu;
     ListView listView;
     boolean viewboolean = false;
     boolean sidemenuboolean = false;
     private MapsFragment mapsFragment = null;
     private ListViewFragment listViewFragment = null;
+    private Sidemenu sideMenu = null;
 
     android.support.v4.app.FragmentManager fm;
     android.support.v4.app.FragmentTransaction ft;
@@ -52,7 +54,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_home);
         img = (ImageView) findViewById(R.id.imageViewList);
-        img2 = (ImageView) findViewById(R.id.sidemenu);
+        img_sidemenu = (ImageView) findViewById(sidemenu);
         //listView = (ListView) findViewById(R.id.listview);
 
         findViewById(R.id.body).setOnClickListener(this);
@@ -61,6 +63,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
         listViewFragment = new ListViewFragment();
         mapsFragment = new MapsFragment();
+        sideMenu = new Sidemenu();
 
 
         if (viewboolean == false) {
@@ -69,8 +72,9 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
             fm = getSupportFragmentManager();
             ft = fm.beginTransaction();
-            ft.remove(mapsFragment);
             ft.remove(listViewFragment);
+            ft.remove(mapsFragment);
+            ft.remove(sideMenu);
             ft.add(R.id.containermap, mapsFragment);
             ft.commit();
             viewboolean = true;
@@ -79,6 +83,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
 
     }
+
 
     @Override
     public void onStart() {
@@ -102,6 +107,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
                 ft.remove(mapsFragment);
                 ft.remove(listViewFragment);
+                ft.remove(sideMenu);
                 ft.add(R.id.containermap, mapsFragment);
 
                 ft.commit();
@@ -131,32 +137,42 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
             // finish();
             startActivity(new Intent(getApplicationContext(), Body.class));
         }
-        else if (i == R.id.sidemenu)
+        else if (i == sidemenu)
         {
 
             if (false == sidemenuboolean) {
-                img2.setImageResource(R.drawable.ic_action_siddemenuv);
+                img_sidemenu.setImageResource(R.drawable.ic_action_siddemenuv);
                 sidemenuboolean = true;
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.containersidemenu, new Sidemenu());
+                ft.remove(mapsFragment);
+                ft.remove(listViewFragment);
+                ft.remove(sideMenu);
+                ft.add(R.id.containersidemenu, sideMenu);
                 ft.commit();
                 Toast.makeText(this, "Open sidemenu", Toast.LENGTH_SHORT).show();
             }
             if (true == sidemenuboolean)
             {
-                img2.setImageResource(R.drawable.ic_action_sidebar);
+                img_sidemenu.setImageResource(R.drawable.ic_action_sidebar);
                 sidemenuboolean = false;
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.containersidemenu, new Sidemenu());
+                //removeFragments();
+                ft.remove(mapsFragment);
+                ft.remove(listViewFragment);
+                ft.remove(sideMenu);
                 ft.commit();
-                Toast.makeText(this, "Open sidemenu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Close sidemenu", Toast.LENGTH_SHORT).show();
             }
 
 
         }
 
     }
-
+    private void removeFragments() {
+        ft.remove(mapsFragment);
+        ft.remove(listViewFragment);
+        //ft.remove(sidemenu);
+    }
 }

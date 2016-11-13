@@ -209,49 +209,7 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
     }
 
 /*
-    private void findEmailforUsername() {
 
-
-        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
-
-        System.out.println(firebaseAuth.getInstance());
-        System.out.println("user" + user);
-        String uid = null;
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            //String name = user.getDisplayName();
-            // String email = user.getEmail();
-            // Uri photoUrl = user.getPhotoUrl();
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            //String uid;
-            uid = user.getUid();
-        }
-        System.out.println("uid"+ uid);
-        System.out.println(mobile_or_email);
-        email = mobile_or_email;
-        System.out.println(email);
-
-         mRootRef.child("Consumer").child(uid).child("mobile").(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.out.println("There are " + snapshot.getChildrenCount() + " blog posts");
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    BlogPost post = postSnapshot.getValue(BlogPost.class);
-                    System.out.println(post.getAuthor() + " - " + post.getTitle());
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
-        Query queryRef = temp.equalTo(mobile_or_email);
-
-
-    }
 
 */
 
