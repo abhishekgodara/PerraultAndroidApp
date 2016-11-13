@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +46,7 @@ public class ListViewFragment extends ListFragment {
         if(container==null)
             return null;
         View v = inflater.inflate(R.layout.fragment_listview, container, false);
+        ListAdapter customAdapter = new CustomAdapter(this,numbers_text);
         listView = (ListView) v.findViewById(R.id.listView);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -112,7 +114,7 @@ public class ListViewFragment extends ListFragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-         objDoctor = new Doctor();
+        objDoctor = new Doctor();
         objDoctor.setName("A K Sharma");
         objDoctor.setDegree("MBBS");
         objDoctor.setRegnum("AQTPM23ertu6789u");
