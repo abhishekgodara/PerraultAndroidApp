@@ -71,7 +71,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         if (viewboolean == false) {
             //img_view.setImageResource(R.drawable.list_view_icon);
 
-            ft.remove(listViewFragment);
+
             ft.remove(mapsFragment);
             fm = getSupportFragmentManager();
             ft = fm.beginTransaction();
@@ -105,7 +105,6 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
 
-                ft.remove(mapsFragment);
                 ft.remove(listViewFragment);
                 ft.add(R.id.containermap, mapsFragment);
 
@@ -120,8 +119,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
 
-                    ft.remove(mapsFragment);
-                    ft.add(R.id.containerlist, listViewFragment);
+                ft.add(R.id.containerlist, listViewFragment);
                         ft.commit();
                 Toast.makeText(this, "Welcome to list", Toast.LENGTH_SHORT).show();
 
