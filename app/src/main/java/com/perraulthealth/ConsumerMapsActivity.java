@@ -22,6 +22,7 @@ import com.perraulthealth.fragment.Sidemenu;
 import java.util.Map;
 
 import static com.perraulthealth.R.drawable.ic_action_siddemenuv;
+import static com.perraulthealth.R.drawable.ic_action_sidebar;
 import static com.perraulthealth.R.id.sidemenu;
 
 
@@ -63,7 +64,6 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         img_view = (ImageView) findViewById(R.id.imageViewList);
         img_sidemenu = (ImageView) findViewById(sidemenu);
 
-        listViewFragment = new ListViewFragment();
         mapsFragment = new MapsFragment();
         sideMenu = new Sidemenu();
 
@@ -73,6 +73,8 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
             fm = getSupportFragmentManager();
             ft = fm.beginTransaction();
+
+            ft.remove(listViewFragment);
             ft.add(R.id.containermap, mapsFragment);
             ft.commit();
             viewboolean = true;
@@ -116,7 +118,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                 viewboolean = false;
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
-
+                ft.remove(mapsFragment);
                 ft.add(R.id.containerlist, listViewFragment);
                         ft.commit();
                 Toast.makeText(this, "Welcome to list", Toast.LENGTH_SHORT).show();
@@ -135,7 +137,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         {
 
             if (false == sidemenuboolean) {
-                //img_sidemenu.setImageResource(ic_action_sidebar);
+                img_sidemenu.setImageResource(ic_action_siddemenuv);
                 sidemenuboolean = true;
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
@@ -145,7 +147,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
             }
             if (true == sidemenuboolean)
             {
-                img_sidemenu.setImageResource(ic_action_siddemenuv);
+                img_sidemenu.setImageResource(ic_action_sidebar);
                 sidemenuboolean = true;
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
