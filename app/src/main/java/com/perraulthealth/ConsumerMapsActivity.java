@@ -74,7 +74,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
             fm = getSupportFragmentManager();
             ft = fm.beginTransaction();
 
-            ft.remove(listViewFragment);
+            //ft.remove(listViewFragment);
             ft.add(R.id.containermap, mapsFragment);
             ft.commit();
             viewboolean = true;
@@ -102,10 +102,11 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                 img_view.setImageResource(R.drawable.list_view_icon);
 
 
+                ft.remove(listViewFragment);
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
 
-                ft.remove(listViewFragment);
+
                 ft.add(R.id.containermap, mapsFragment);
 
                 ft.commit();
