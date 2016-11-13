@@ -217,5 +217,11 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
     }
 
+    /**
+     * Created by sutu on 11/13/2016.
+     */
+
+
+
 }
 

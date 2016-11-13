@@ -51,11 +51,12 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
 
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_home);
         img = (ImageView) findViewById(R.id.imageViewList);
         img_sidemenu = (ImageView) findViewById(sidemenu);
-        //listView = (ListView) findViewById(R.id.listview);
+
 
         findViewById(R.id.body).setOnClickListener(this);
         findViewById(R.id.imageViewList).setOnClickListener(this);

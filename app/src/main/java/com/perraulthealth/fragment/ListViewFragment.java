@@ -5,7 +5,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -46,13 +46,23 @@ public class ListViewFragment extends ListFragment {
         if(container==null)
             return null;
         View v = inflater.inflate(R.layout.fragment_listview, container, false);
-        ListAdapter customAdapter = new CustomAdapter(this,numbers_text);
-        listView = (ListView) v.findViewById(R.id.listView);
 
+
+        ListAdapter customAdapter = new CustomAdapter(getContext(),numbers_text );
+        listView = (ListView) v.findViewById(R.id.listView);
+        listView.setAdapter(customAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = String.valueOf(parent.getItemIdAtPosition(position));
+            }
+        });
+/*
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), android.R.layout.simple_list_item_1,
                 numbers_text);
         setListAdapter(adapter);
+        */
         return super.onCreateView(inflater, container, savedInstanceState);
 
 

@@ -1,7 +1,6 @@
-package com.perraulthealth.adapter;
+package com.perraulthealth.fragment;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,34 +18,32 @@ import com.google.firebase.database.ValueEventListener;
 import com.perraulthealth.Doctor;
 import com.perraulthealth.R;
 
-
-
-/**
- * Created by sutu on 11/13/2016.
- */
-
-
-class CustomAdapter extends ArrayAdapter <String> {
+public  class CustomAdapter extends ArrayAdapter<String> {
 
     private Doctor mDoctor = new Doctor();
     private String name;
     private String regnum;
     private String degree;
+    TextView doctor_name;
+    TextView doctor_regnum;
+    TextView doctor_degree;
+    ImageView doctor_photo;
 
-    CustomAdapter(Context context, String[] resstring) {
-        super(context, R.layout.custom_row, resstring);
+
+
+    CustomAdapter(Context context, String[] numbers_text) {
+        super(context, R.layout.item_doctor, numbers_text);
     }
 
-    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater mInflator = LayoutInflater.from(getContext());
 
         View customView = mInflator.inflate(R.layout.item_doctor, parent, false);
-        TextView doctor_name = (TextView) customView.findViewById(R.id.name);
-        TextView doctor_regnum = (TextView) customView.findViewById(R.id.regnum);
-        TextView doctor_degree = (TextView) customView.findViewById(R.id.degree);
-        ImageView doctor_photo = (ImageView) customView.findViewById(R.id.doctorphoto);
+         doctor_name = (TextView) customView.findViewById(R.id.name);
+         doctor_regnum = (TextView) customView.findViewById(R.id.regnum);
+         doctor_degree = (TextView) customView.findViewById(R.id.degree);
+         doctor_photo = (ImageView) customView.findViewById(R.id.doctorphoto);
 
 
         String singleItem = getItem(position);
@@ -60,12 +57,11 @@ class CustomAdapter extends ArrayAdapter <String> {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
                 mDoctor = dataSnapshot.getValue(Doctor.class);
-                name = mDoctor.getName();
-                regnum = mDoctor.getRegnum();
-                degree = mDoctor.getDegree();
-
+                doctor_name.setText(mDoctor.getName());
+                doctor_photo.setImageResource(R.drawable.doctor_photo);
+                doctor_regnum.setText(mDoctor.getRegnum());
+                doctor_degree.setText(mDoctor.getDegree());
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
@@ -73,10 +69,7 @@ class CustomAdapter extends ArrayAdapter <String> {
                 // ...
             }
         });
-        doctor_name.setText(mDoctor.getName());
-        doctor_photo.setImageResource(R.drawable.doctor_photo);
-        doctor_regnum.setText(mDoctor.getRegnum());
-        doctor_degree.setText(mDoctor.getDegree());
         return customView;
+
     }
 }
