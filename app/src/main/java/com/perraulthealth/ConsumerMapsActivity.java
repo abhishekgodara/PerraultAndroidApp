@@ -123,10 +123,10 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                     fm = getSupportFragmentManager();
                     ft = fm.beginTransaction();
                     ft.remove(mapsFragment);
-                    ft.remove(listViewFragment);
+                    ft.remove(sideMenu);
                     ft.add(R.id.containerlist, listViewFragment);
                         ft.commit();
-                Toast.makeText(this, "Welcome to map", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Welcome to list", Toast.LENGTH_SHORT).show();
 
                 }
 
