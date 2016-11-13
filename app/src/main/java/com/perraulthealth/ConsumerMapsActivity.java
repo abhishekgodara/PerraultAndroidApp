@@ -71,8 +71,6 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         if (viewboolean == false) {
             //img_view.setImageResource(R.drawable.list_view_icon);
 
-
-            ft.remove(mapsFragment);
             fm = getSupportFragmentManager();
             ft = fm.beginTransaction();
             ft.add(R.id.containermap, mapsFragment);
