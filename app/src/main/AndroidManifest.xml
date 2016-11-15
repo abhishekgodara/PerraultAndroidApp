@@ -39,12 +39,13 @@
             android:label="Body" />
         <activity
             android:name="com.Doctor.DoctorHomeActivity"
-            android:label="@string/title_activity_doctor_home"/>
+            android:label="@string/title_activity_doctor_home" />
         <activity android:name="com.Homecare.HomecareHomeActivity" />
         <activity android:name="com.Hospital.HospitalHomeActivity" />
         <activity android:name="com.Lab.LabHomeActivity" />
         <activity android:name="com.Pharmacy.PharmacyHomeActivity" />
-        <activity android:name="com.Retailer.RetailerHomeActivity"></activity>
+        <activity android:name="com.Retailer.RetailerHomeActivity" />
+        <activity android:name=".MydocumentsActivity"></activity>
     </application>
 
 </manifest>
