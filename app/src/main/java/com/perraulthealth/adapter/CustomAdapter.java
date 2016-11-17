@@ -43,7 +43,7 @@ public  class CustomAdapter extends ArrayAdapter<String> {
          doctor_name = (TextView) customView.findViewById(R.id.name);
          doctor_regnum = (TextView) customView.findViewById(R.id.regnum);
          doctor_degree = (TextView) customView.findViewById(R.id.degree);
-         doctor_photo = (ImageView) customView.findViewById(R.id.doctorphoto);
+      //   doctor_photo = (ImageView) customView.findViewById(R.id.doctorphoto);
 
 
         String singleItem = getItem(position);

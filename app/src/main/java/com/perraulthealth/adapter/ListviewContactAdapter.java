@@ -1,69 +1,61 @@
 package com.perraulthealth.adapter;
 
-import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.perraulthealth.R;
-import com.perraulthealth.model.ListViewItem;
-
-import java.util.ArrayList;
 
 /**
  * Created by sutu on 11/10/2016.
  */
 
-public class ListviewContactAdapter extends BaseAdapter {
-    private static ArrayList<ListViewItem> contactlist;
+public class ListviewContactAdapter extends RecyclerView.Adapter<ListviewContactAdapter.RecyclerViewHolder> {
+    private String[] name= null;
+    private LayoutInflater layoutInflater =null;
+    //List<Information> data = Collections.emptyList();
 
-    private LayoutInflater mInflater;
 
-    public ListviewContactAdapter(Context listviewFragment, ArrayList<ListViewItem> results){
-        contactlist = results;
-        mInflater = LayoutInflater.from(listviewFragment);
+    public ListviewContactAdapter(String[] name)
+    {
+        this.name = name;
+        //layoutInflater.from(context);
+    }
+    @Override
+    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = layoutInflater.inflate(R.layout.item_doctor,parent,false);
+        RecyclerViewHolder holder = new RecyclerViewHolder(view);
+
+
+        return holder;
     }
 
     @Override
-    public int getCount() {
-        // TODO Auto-generated method stub
-        return contactlist.size();
+    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+        holder.name.setText(name[position]);
+
+
     }
 
     @Override
-    public Object getItem(int arg0) {
-        // TODO Auto-generated method stub
-        return contactlist.get(arg0);
+    public int getItemCount() {
+        return 0;
     }
 
-    @Override
-    public long getItemId(int arg0) {
-        // TODO Auto-generated method stub
-        return arg0;
-    }
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
-        ViewHolder holder;
-        if(convertView == null){
-            convertView = mInflater.inflate(R.layout.item_list, null);
-            holder = new ViewHolder();
-            holder.txtname = (TextView) convertView.findViewById(R.id.name);
-            holder.txtphone = (TextView) convertView.findViewById(R.id.phone);
+    public static class RecyclerViewHolder extends RecyclerView.ViewHolder{
+        TextView name;
 
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+        public RecyclerViewHolder(View itemView)
+        {
+            super(itemView);
+
+
+            name = (TextView)itemView.findViewById(R.id.doctorname);
+
+
         }
-
-        holder.txtname.setText(contactlist.get(position).getTitle());
-        holder.txtphone.setText(contactlist.get(position).getImgId());
-
-        return convertView;
-    }
-
-    static class ViewHolder{
-        TextView txtname, txtphone;
     }
 }

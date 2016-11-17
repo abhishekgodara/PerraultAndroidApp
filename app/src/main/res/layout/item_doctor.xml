@@ -5,23 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_doctor"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="200dp"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id = "@+id/doctorphoto"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-
-
-        />
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="344dp"
         android:layout_height="40dp"
-        android:id="@+id/name"
+        android:id="@+id/doctorname"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/regnum"/>
 
@@ -29,9 +20,9 @@
 
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="344dp"
         android:layout_height="40dp"
-        android:id="@+id/regnum"
+        android:id="@+id/doctorregnum"
         android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
@@ -40,7 +31,7 @@
     <TextView
         android:layout_width="344dp"
         android:layout_height="40dp"
-        android:id="@+id/degree"
+        android:id="@+id/doctordegree"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

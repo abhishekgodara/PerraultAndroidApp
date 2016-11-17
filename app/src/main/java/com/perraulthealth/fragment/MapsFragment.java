@@ -137,7 +137,7 @@ public  class MapsFragment  extends Fragment implements GeoQueryEventListener {
 
 
 
-                    mMap.addMarker(new MarkerOptions().position(latLngCenter).title("Marker in Sydney"));
+                    mMap.addMarker(new MarkerOptions().position(latLngCenter).title("You are here"));
 
 
 

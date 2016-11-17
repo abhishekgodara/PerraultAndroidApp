@@ -45,7 +45,12 @@
         <activity android:name="com.Lab.LabHomeActivity" />
         <activity android:name="com.Pharmacy.PharmacyHomeActivity" />
         <activity android:name="com.Retailer.RetailerHomeActivity" />
-        <activity android:name=".MydocumentsActivity"></activity>
+        <activity android:name=".MydocumentsActivity" />
+        <activity
+            android:name=".abcd"
+            android:label="@string/title_activity_abcd"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Consumerhome"></activity>
     </application>
 
 </manifest>

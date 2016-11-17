@@ -83,7 +83,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                     Log.d(TAG, "onAuthStateChanged:signed_in:-tarun" + user.getUid());
                     //startActivity(new Intent(getApplicationContext(),ConsumerMapsSigninActivity.class ));
                     finish();
-                    startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+                    startActivity(new Intent(getApplicationContext(),abcd.class ));
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out-tarun");
@@ -179,7 +179,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                             finish();
                            // progressDialog.dismiss();
                             //otp auth
-                            startActivity(new Intent(getApplicationContext(), ConsumerMapsActivity.class));
+                            startActivity(new Intent(getApplicationContext(), abcd.class));
                         }
 
                         // If sign in fails, display a message to the user. If sign in succeeds

@@ -2,6 +2,7 @@ package com.perraulthealth.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.perraulthealth.R;
 import com.perraulthealth.model.ListViewItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ListViewFragment extends ListFragment {
@@ -35,6 +37,16 @@ public class ListViewFragment extends ListFragment {
     private Pharmacy objPharmacy = null;
     private Lab objLab = null;
     private Hospital objHospital = null;
+    List<Doctor> rowItems;
+    ListView mylistview;
+    private String name;
+    private String regnum;
+    private String degree;
+    private RecyclerView recyclerView =null;
+    private RecyclerView.Adapter adapter =null;
+    private RecyclerView.LayoutManager layoutManager =null;
+
+
 
 
 
@@ -125,18 +137,18 @@ public class ListViewFragment extends ListFragment {
         objDoctor.setRegnum("AQTPM23ertu6789u");
         mRootRef.child("Doctor").child(uid).setValue(objDoctor);
 
-         objPharmacy = new Pharmacy();
+        objPharmacy = new Pharmacy();
         objPharmacy.setName("Apollo pharmacy");
         objPharmacy.setRegnum("AQWERTYU");
         objPharmacy.setRating("4.3");
         mRootRef.child("Pharmacy").child(uid).setValue(objPharmacy);
 
 
-         objLab = new Lab();
+        objLab = new Lab();
         objLab.setName("Focus Imagine");
         mRootRef.child("Lab").child(uid).setValue(objLab);
 
-         objHospital = new Hospital();
+        objHospital = new Hospital();
         objHospital.setName("MAX hospital");
         objHospital.setRating("5.1");
         objHospital.setNumofbeds(600);
@@ -147,3 +159,4 @@ public class ListViewFragment extends ListFragment {
     }
 
 }
+

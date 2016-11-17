@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mysettings"
+            android:title="My settings" />
+        <item
+            android:id="@+id/myprofile"
+            android:title="My profile" />
+        <item
+            android:id="@+id/myactivity"
+            android:title="My activity" />
+        <item
+            android:id="@+id/mydocuments"
+            android:title="My documents" />
+        <item
+            android:id="@+id/recent"
+            android:title="Recent" />
+        <item
+            android:id="@+id/myrecommendations"
+            android:title="My recommendations" />
+        <item
+            android:id="@+id/offers"
+            android:title="Offers" />
+        <item
+            android:id="@+id/customerservice"
+            android:title="Customer service" />
+        <item
+            android:id="@+id/rateourapp"
+            android:title="Rate our app" />
+        <item
+            android:id="@+id/legalandabout"
+            android:title="Legal and about" />
+        <item
+            android:id="@+id/signout"
+            android:title="Signout" />
+
+
+    </group>
+
+
+
+</menu>

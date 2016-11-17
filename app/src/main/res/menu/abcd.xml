@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/imageViewList"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:icon="@drawable/list_view_icon"
+        android:title="@string/listview"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/imageViewHealthcard"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:icon="@drawable/healthcard"
+        android:title="@string/Healthcard"
+        app:showAsAction="ifRoom"/>
+
+   <item
+       android:layout_width="40dp"
+       android:layout_height="40dp"
+       android:id="@+id/imageViewBucket"
+       android:layout_marginTop="5dp"
+       android:layout_marginRight="5dp"
+       android:icon="@drawable/bucket"
+       android:title="@string/Bucket"
+       app:showAsAction="ifRoom"/>
+
+
+
+    <item
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:icon="@drawable/filter"
+        android:id="@+id/imageViewFilter"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/filter"/>
+
+</menu>
