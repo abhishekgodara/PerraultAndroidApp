@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "482650469659",
-    "firebase_url": "https://perraulthealth-cfc33.firebaseio.com",
-    "project_id": "perraulthealth-cfc33",
-    "storage_bucket": "perraulthealth-cfc33.appspot.com"
+    "project_number": "229438615127",
+    "firebase_url": "https://perraulthealth-3b92f.firebaseio.com",
+    "project_id": "perraulthealth-3b92f",
+    "storage_bucket": "perraulthealth-3b92f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:482650469659:android:3b3870896bfd5ace",
+        "mobilesdk_app_id": "1:229438615127:android:3b3870896bfd5ace",
         "android_client_info": {
           "package_name": "com.perraulthealth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "482650469659-uv4p43kigir48l0v59cdk2esse32ttsp.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.perraulthealth",
-            "certificate_hash": "95DE716F9B539CFCAF60B627A8B2D2FB7958C6DB"
-          }
-        },
-        {
-          "client_id": "482650469659-qa8f44bb0agehddujmfonvm0iupnr3b6.apps.googleusercontent.com",
+          "client_id": "229438615127-4cgc1htsa69o7rbjdtquocdpjnru30u2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCl63LBjoHLW0nNmdLNfd5EI3D9A6zL5R0"
+          "current_key": "AIzaSyBbnNsOoxK00rW3Z2AHYvW-g310TBNNkCY"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "482650469659-qa8f44bb0agehddujmfonvm0iupnr3b6.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
